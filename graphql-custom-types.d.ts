@@ -2,7 +2,7 @@ import { GraphQLScalarType, Value } from "graphql";
 
 export class Factory {
   getRegexScalar(options: RegexScaleOptions): GraphQLCustomScalarType;
-  getCustomScalar(name: string, description: string, parser: (ast: Value) => any);
+  getCustomScalar(name: string, description: string, parser: (ast: Value) => any): GraphQLCustomScalarType;
 }
 
 export class GraphQLCustomScalarType extends GraphQLScalarType {
