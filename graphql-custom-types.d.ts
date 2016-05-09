@@ -17,10 +17,6 @@ export class GraphQLPassword extends GraphQLCustomScalarType {
   constructor(min?: number, max?: number, alphabet?: string, complexity?: PasswordComplexityOptions);
 }
 
-export class GraphQLDefinedString extends GraphQLCustomScalarType {
-  constructor(definedValues: string[], customName?: string, customDescription?: string)
-}
-
 export var GraphQLEmail: GraphQLCustomScalarType;
 export var GraphQLURL: GraphQLCustomScalarType;
 export var GraphQLDateTime: GraphQLCustomScalarType;
