@@ -143,22 +143,3 @@ export const GraphQLDateTime = factory.getCustomScalar(
     return ast.value;
   }
 );
-
-var definedStringCounter = 0;
-export class GraphQLDefinedString extends GraphQLCustomScalarType {
-  constructor(definedValues = [], customName, customDescription) {
-    const suffix = (limitedStringCounter++ > 0) ? limitedStringCounter : '';
-    const name = customName || 'DefinedString' + suffix;
-    var description = customDescription || 'A defined string with possible values of ' + definedValues.join('|');
-
-    super(name, description, function(ast) {
-      stringValidator(ast);
-
-      if (definedValues.indexOf(ast.value) === -1) {
-        throw new GraphQLError('Query error: String is not a valid ' + customName, [ast]);
-      }
-
-      return ast.value;
-    });
-  }
-};
