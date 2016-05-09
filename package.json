@@ -1,6 +1,6 @@
 {
-  "name": "graphql-custom-types",
-  "repository": "stylesuxx/graphql-custom-types",
+  "name": "graphql-custom-types-ts",
+  "repository": "aliatsis/graphql-custom-types-ts",
   "version": "0.3.0",
   "description": "Collection of custom graphql types like Email, URL, password and many more",
   "author": "Chris Landa <stylesuxx@gmail.com>",
