@@ -1,0 +1,10 @@
+{
+  "name": "graphql-custom-types",
+  "main": "graphql-custom-types.d.ts",
+  "ambientDependencies": {
+    "node": "registry:dt/node#4.0.0+20160226132328"
+  },
+  "dependencies": {
+    "graphql": "github:dimdimych/typed-graphql#59fede86513d3ed0dede6649967f744d0f556ff5"
+  }
+}

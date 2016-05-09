@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "es2015"
+  },
+  "files": [
+    "graphql-custom-types.d.ts",
+    "typings/main.d.ts"
+  ]
+}
