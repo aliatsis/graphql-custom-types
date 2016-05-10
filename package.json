@@ -15,6 +15,7 @@
     "preversion": "npm test"
   },
   "devDependencies": {
+    "graphql": "^0.5.0",
     "babel": "^6.3.13",
     "babel-cli": "^6.3.15",
     "babel-eslint": "^4.1.6",
@@ -24,8 +25,8 @@
     "typescript": "~1.8.10",
     "typings": "~0.8.1"
   },
-  "dependencies": {
-    "graphql": "^0.4.14"
+  "peerDependencies": {
+    "graphql": "0.5.x"
   },
   "keywords": [
     "es6",
