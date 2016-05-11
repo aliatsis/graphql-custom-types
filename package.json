@@ -26,7 +26,7 @@
     "typings": "~0.8.1"
   },
   "peerDependencies": {
-    "graphql": "0.6.x"
+    "graphql": "^0.6.0"
   },
   "keywords": [
     "es6",
