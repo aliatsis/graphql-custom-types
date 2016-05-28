@@ -2,6 +2,7 @@ import {
   GraphQLEmail,
   GraphQLURL,
   GraphQLLimitedString,
+  GraphQLStringPattern,
   GraphQLPassword,
   GraphQLDateTime,
   GraphQLUUID
@@ -17,6 +18,7 @@ module.exports = {
   GraphQLEmail,
   GraphQLURL,
   GraphQLLimitedString,
+  GraphQLStringPattern,
   GraphQLPassword,
   GraphQLDateTime,
   GraphQLUUID
