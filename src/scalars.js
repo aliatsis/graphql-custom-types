@@ -89,9 +89,10 @@ const complexityValidator = function(ast, options) {
   }
 };
 
+var stringPatternCounter = 0;
 export class GraphQLStringPattern extends GraphQLCustomScalarType {
   constructor(pattern, customName) {
-    const name = customName || `StringPattern[${pattern}]`;
+    const name = customName || ('StringPattern' + (stringPatternCounter++ > 0) ? stringPatternCounter : '');
     var description = 'A string matching the pattern: ' + pattern;
 
     const validator = function(ast) {
@@ -103,9 +104,10 @@ export class GraphQLStringPattern extends GraphQLCustomScalarType {
   }
 };
 
+var limitedStringCounter = 0;
 export class GraphQLLimitedString extends GraphQLCustomScalarType {
   constructor(min = 1, max, alphabet, customName) {
-    const name = `LimitedString[${min}${max ? '-' + max : '+'}${alphabet ? '][' + alphabet : ''}]`;
+    const name = customName || ('LimitedString' + (limitedStringCounter++ > 0) ? limitedStringCounter : '');
     var description = 'A limited string.';
     if (max) description += ' Has to be between ' + min + ' and ' + max + ' characters long.';
     else description += ' Has to be at least ' + min + ' characters long.';
@@ -120,7 +122,7 @@ export class GraphQLLimitedString extends GraphQLCustomScalarType {
       return ast.value;
     }
 
-    super(customName || name, description, validator);
+    super(name, description, validator);
   }
 };
 
