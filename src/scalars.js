@@ -60,6 +60,16 @@ const alphabetValidator = function(ast, alphabet) {
   }
 };
 
+const patternValidator = function(ast, pattern) {
+  if (!(pattern instanceof RegExp)) {
+    pattern = new RegExp(patern);
+  }
+
+  if (!ast.value.match(pattern)) {
+    throw new GraphQLError('Query error: Input does not match required pattern', [ast]);
+  }
+};
+
 const complexityValidator = function(ast, options) {
   const complexity = options || {};
   const alhpaNumericRe = /^(?=.*[0-9])(?=.*[a-zA-Z])(.+)$/;
@@ -79,11 +89,23 @@ const complexityValidator = function(ast, options) {
   }
 };
 
-var limitedStringCounter = 0;
+export class GraphQLStringPattern extends GraphQLCustomScalarType {
+  constructor(pattern, customName) {
+    const name = customName || `StringPattern[${pattern}]`;
+    var description = 'A string matching the pattern: ' + pattern;
+
+    const validator = function(ast) {
+      patternValidator(ast, pattern);
+      return ast.value;
+    }
+
+    super(name, description, validator);
+  }
+};
+
 export class GraphQLLimitedString extends GraphQLCustomScalarType {
-  constructor(min = 1, max, alphabet) {
-    const suffix = (limitedStringCounter++ > 0) ? limitedStringCounter : '';
-    const name = 'LimitedString' + suffix;
+  constructor(min = 1, max, alphabet, customName) {
+    const name = `LimitedString[${min}${max ? '-' + max : '+'}${alphabet ? '][' + alphabet : ''}]`;
     var description = 'A limited string.';
     if (max) description += ' Has to be between ' + min + ' and ' + max + ' characters long.';
     else description += ' Has to be at least ' + min + ' characters long.';
@@ -98,7 +120,7 @@ export class GraphQLLimitedString extends GraphQLCustomScalarType {
       return ast.value;
     }
 
-    super(name, description, validator);
+    super(customName || name, description, validator);
   }
 };
 
