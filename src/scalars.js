@@ -168,3 +168,12 @@ export const GraphQLDateTime = factory.getCustomScalar(
     return ast.value;
   }
 );
+
+export const GraphQLDate = factory.getCustomScalar(
+  'Date',
+  'A date string with the format MM/DD/YYYY',
+  function(ast) {
+    patternValidator(ast, /(0[1-9]|1[012])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d\d/);
+    return ast.value;
+  }
+);

@@ -5,6 +5,7 @@ import {
   GraphQLStringPattern,
   GraphQLPassword,
   GraphQLDateTime,
+  GraphQLDate,
   GraphQLUUID
 } from './scalars';
 import {
@@ -21,5 +22,6 @@ module.exports = {
   GraphQLStringPattern,
   GraphQLPassword,
   GraphQLDateTime,
+  GraphQLDate,
   GraphQLUUID
 }
