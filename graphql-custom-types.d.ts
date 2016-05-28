@@ -9,8 +9,12 @@ export class GraphQLCustomScalarType extends GraphQLScalarType {
   constructor(name: string, description: string, parser: (ast: Value) => any);
 }
 
+export class GraphQLStringPattern extends GraphQLCustomScalarType {
+  constructor(pattern: string | RegExp, customName?: string);
+}
+
 export class GraphQLLimitedString extends GraphQLCustomScalarType {
-  constructor(min?: number, max?: number, alphabet?: string);
+  constructor(min?: number, max?: number, alphabet?: string, customName?: string);
 }
 
 export class GraphQLPassword extends GraphQLCustomScalarType {
@@ -20,6 +24,7 @@ export class GraphQLPassword extends GraphQLCustomScalarType {
 export var GraphQLEmail: GraphQLCustomScalarType;
 export var GraphQLURL: GraphQLCustomScalarType;
 export var GraphQLDateTime: GraphQLCustomScalarType;
+export var GraphQLDate: GraphQLCustomScalarType;
 export var GraphQLUUID: GraphQLCustomScalarType;
 
 interface RegexScaleOptions {
