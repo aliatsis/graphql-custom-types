@@ -1,6 +1,7 @@
 import {
   GraphQLString,
-  GraphQLScalarType
+  GraphQLScalarType,
+  GraphQLNonNull
 } from 'graphql';
 import {
   GraphQLError
@@ -9,7 +10,8 @@ import {
   Kind
 } from 'graphql/language';
 import {
-  GraphQLCustomScalarType
+  GraphQLCustomScalarType,
+  GraphQLTruthyScalarType
 } from './types';
 
 export class Factory {
