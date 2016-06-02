@@ -9,6 +9,10 @@ export class GraphQLCustomScalarType extends GraphQLScalarType {
   constructor(name: string, description: string, parser: (ast: Value) => any);
 }
 
+export class GraphQLTruthyScalarType extends GraphQLScalarType {
+  constructor(baseType: GraphQLScalarType);
+}
+
 export class GraphQLStringPattern extends GraphQLCustomScalarType {
   constructor(pattern: string | RegExp, customName?: string);
 }
@@ -20,6 +24,11 @@ export class GraphQLLimitedString extends GraphQLCustomScalarType {
 export class GraphQLPassword extends GraphQLCustomScalarType {
   constructor(min?: number, max?: number, alphabet?: string, complexity?: PasswordComplexityOptions);
 }
+
+export var GraphQLTruthyString: GraphQLTruthyScalarType;
+export var GraphQLTruthyFloat: GraphQLTruthyScalarType;
+export var GraphQLTruthyInt: GraphQLTruthyScalarType;
+export var GraphQLTruthyID: GraphQLTruthyScalarType;
 
 export var GraphQLEmail: GraphQLCustomScalarType;
 export var GraphQLURL: GraphQLCustomScalarType;
