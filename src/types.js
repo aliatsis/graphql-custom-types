@@ -27,8 +27,8 @@ export class GraphQLTruthyScalarType extends GraphQLScalarType {
     super({
       name: name,
       description: `The '${name}' scalar type is a '${baseType.name}' scalar type with a 'truthy' value according to JavaScript standards`,
-      serialize: baseType.serialize,
-      parseValue: baseType.parseValue,
+      serialize: (value) => baseType.serialize(value),
+      parseValue: (value) => baseType.parseValue(value),
       parseLiteral: (ast) => baseType.parseLiteral(ast) || null
     });
   }
