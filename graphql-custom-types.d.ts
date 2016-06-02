@@ -1,4 +1,4 @@
-import { GraphQLScalarType, Value } from "graphql";
+import { GraphQLScalarType, GraphQLNonNull, Value } from "graphql";
 
 export class Factory {
   getRegexScalar(options: RegexScaleOptions): GraphQLCustomScalarType;
@@ -25,10 +25,10 @@ export class GraphQLPassword extends GraphQLCustomScalarType {
   constructor(min?: number, max?: number, alphabet?: string, complexity?: PasswordComplexityOptions);
 }
 
-export var GraphQLTruthyString: GraphQLTruthyScalarType;
-export var GraphQLTruthyFloat: GraphQLTruthyScalarType;
-export var GraphQLTruthyInt: GraphQLTruthyScalarType;
-export var GraphQLTruthyID: GraphQLTruthyScalarType;
+export var GraphQLTruthyString: GraphQLNonNull;
+export var GraphQLTruthyFloat: GraphQLNonNull;
+export var GraphQLTruthyInt: GraphQLNonNull;
+export var GraphQLTruthyID: GraphQLNonNull;
 
 export var GraphQLEmail: GraphQLCustomScalarType;
 export var GraphQLURL: GraphQLCustomScalarType;

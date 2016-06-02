@@ -2,9 +2,15 @@ import {
   GraphQLString,
   GraphQLScalarType
 } from 'graphql';
-import { GraphQLError } from 'graphql/error';
-import { Kind } from 'graphql/language';
-import { GraphQLCustomScalarType } from './types';
+import {
+  GraphQLError
+} from 'graphql/error';
+import {
+  Kind
+} from 'graphql/language';
+import {
+  GraphQLCustomScalarType
+} from './types';
 
 export class Factory {
   getRegexScalar(options) {
@@ -16,7 +22,7 @@ export class Factory {
       }
 
       var re = options.regex;
-      if(!re.test(ast.value)) {
+      if (!re.test(ast.value)) {
         throw new GraphQLError(error, [ast]);
       }
 
@@ -29,4 +35,9 @@ export class Factory {
   getCustomScalar(name, description, parser) {
     return new GraphQLCustomScalarType(name, description, parser);
   }
+
+  getTruthyScalar(baseType) {
+    return new GraphQLNonNull(new GraphQLTruthyScalarType(baseType));
+  }
+
 }

@@ -14,17 +14,16 @@ import {
   Factory
 } from './factory';
 import {
-  GraphQLCustomScalarType,
-  GraphQLTruthyScalarType
+  GraphQLCustomScalarType
 } from './types';
 
 const factory = new Factory();
 
 // Truthy types: start
-export const GraphQLTruthyString = new GraphQLTruthyScalarType(GraphQLString);
-export const GraphQLTruthyFloat = new GraphQLTruthyScalarType(GraphQLFloat);
-export const GraphQLTruthyInt = new GraphQLTruthyScalarType(GraphQLInt);
-export const GraphQLTruthyID = new GraphQLTruthyScalarType(GraphQLID);
+export const GraphQLTruthyString = factory.getTruthyScalar(GraphQLString);
+export const GraphQLTruthyFloat = factory.getTruthyScalar(GraphQLFloat);
+export const GraphQLTruthyInt = factory.getTruthyScalar(GraphQLInt);
+export const GraphQLTruthyID = factory.getTruthyScalar(GraphQLID);
 // Truthy types: end
 
 export const GraphQLEmail = factory.getRegexScalar({
