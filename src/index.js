@@ -6,16 +6,22 @@ import {
   GraphQLPassword,
   GraphQLDateTime,
   GraphQLDate,
-  GraphQLUUID
+  GraphQLUUID,
+  GraphQLTruthyString,
+  GraphQLTruthyFloat,
+  GraphQLTruthyInt,
+  GraphQLTruthyID
 } from './scalars';
 import {
-  GraphQLCustomScalarType
+  GraphQLCustomScalarType,
+  GraphQLTruthyScalarType
 } from './types';
 import Factory from './factory';
 
 module.exports = {
   Factory,
   GraphQLCustomScalarType,
+  GraphQLTruthyScalarType,
   GraphQLEmail,
   GraphQLURL,
   GraphQLLimitedString,
@@ -23,5 +29,9 @@ module.exports = {
   GraphQLPassword,
   GraphQLDateTime,
   GraphQLDate,
-  GraphQLUUID
+  GraphQLUUID,
+  GraphQLTruthyString,
+  GraphQLTruthyFloat,
+  GraphQLTruthyInt,
+  GraphQLTruthyID
 }
