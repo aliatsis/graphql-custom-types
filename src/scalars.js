@@ -1,4 +1,10 @@
 import {
+  GraphQLInt,
+  GraphQLFloat,
+  GraphQLString,
+  GraphQLID
+} from 'graphql';
+import {
   GraphQLError
 } from 'graphql/error';
 import {
@@ -8,10 +14,18 @@ import {
   Factory
 } from './factory';
 import {
-  GraphQLCustomScalarType
+  GraphQLCustomScalarType,
+  GraphQLTruthyScalarType
 } from './types';
 
 const factory = new Factory();
+
+// Truthy types: start
+export const GraphQLTruthyString = new GraphQLTruthyScalarType(GraphQLString);
+export const GraphQLTruthyFloat = new GraphQLTruthyScalarType(GraphQLFloat);
+export const GraphQLTruthyInt = new GraphQLTruthyScalarType(GraphQLInt);
+export const GraphQLTruthyID = new GraphQLTruthyScalarType(GraphQLID);
+// Truthy types: end
 
 export const GraphQLEmail = factory.getRegexScalar({
   name: 'Email',

@@ -1,4 +1,6 @@
-import { GraphQLScalarType } from 'graphql';
+import {
+  GraphQLScalarType
+} from 'graphql';
 
 export class GraphQLCustomScalarType extends GraphQLScalarType {
   constructor(name, description, parser) {
@@ -14,6 +16,20 @@ export class GraphQLCustomScalarType extends GraphQLScalarType {
       parseLiteral: ast => {
         return parser(ast);
       }
+    });
+  }
+}
+
+export class GraphQLTruthyScalarType extends GraphQLScalarType {
+  constructor(baseType) {
+    let name = `Truthy${baseType.name}`;
+
+    super({
+      name: name,
+      description: `The '${name}' scalar type is a '${baseType.name}' scalar type with a 'truthy' value according to JavaScript standards`,
+      serialize: baseType.serialize,
+      parseValue: baseType.parseValue,
+      parseLiteral: (ast) => baseType.parseLiteral(ast) || null
     });
   }
 }
