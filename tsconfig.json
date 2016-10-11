@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es2015"
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "types": [
+      "node"
+    ]
   },
-  "files": [
-    "graphql-custom-types.d.ts",
-    "typings/main.d.ts"
+  "include": [
+    "index.d.ts"
   ]
 }
