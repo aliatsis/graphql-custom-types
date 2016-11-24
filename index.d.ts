@@ -1,13 +1,13 @@
 import { GraphQLScalarType, GraphQLNonNull } from "graphql";
-import { Value } from "graphql/language/ast";
+import { ValueNode } from "graphql/language/ast";
 
 export class Factory {
   getRegexScalar(options: RegexScaleOptions): GraphQLCustomScalarType;
-  getCustomScalar(name: string, description: string, parser: (ast: Value) => any): GraphQLCustomScalarType;
+  getCustomScalar(name: string, description: string, parser: (ast: ValueNode) => any): GraphQLCustomScalarType;
 }
 
 export class GraphQLCustomScalarType extends GraphQLScalarType {
-  constructor(name: string, description: string, parser: (ast: Value) => any);
+  constructor(name: string, description: string, parser: (ast: ValueNode) => any);
 }
 
 export class GraphQLTruthyScalarType extends GraphQLScalarType {
